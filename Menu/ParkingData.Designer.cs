@@ -31,7 +31,6 @@
             cbVehicleID = new ComboBox();
             btnCancel = new Button();
             btnSave = new Button();
-            tbLicensePlate = new TextBox();
             label4 = new Label();
             gbField = new GroupBox();
             btnCount = new Button();
@@ -41,6 +40,8 @@
             dtTimeIn = new DateTimePicker();
             cbHourlyRatesID = new ComboBox();
             cbEmployeeID = new ComboBox();
+            cbLicense = new ComboBox();
+            btnSaveEdit = new Button();
             label5 = new Label();
             label7 = new Label();
             label6 = new Label();
@@ -94,14 +95,7 @@
             btnSave.TabIndex = 8;
             btnSave.Text = "Save";
             btnSave.UseVisualStyleBackColor = false;
-            // 
-            // tbLicensePlate
-            // 
-            tbLicensePlate.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
-            tbLicensePlate.Location = new Point(125, 22);
-            tbLicensePlate.Name = "tbLicensePlate";
-            tbLicensePlate.Size = new Size(173, 23);
-            tbLicensePlate.TabIndex = 1;
+            btnSave.Click += btnSave_Click;
             // 
             // label4
             // 
@@ -123,12 +117,13 @@
             gbField.Controls.Add(dtTimeIn);
             gbField.Controls.Add(cbHourlyRatesID);
             gbField.Controls.Add(cbEmployeeID);
+            gbField.Controls.Add(cbLicense);
             gbField.Controls.Add(cbVehicleID);
             gbField.Controls.Add(btnCancel);
+            gbField.Controls.Add(btnSaveEdit);
             gbField.Controls.Add(btnSave);
             gbField.Controls.Add(label5);
             gbField.Controls.Add(label7);
-            gbField.Controls.Add(tbLicensePlate);
             gbField.Controls.Add(label6);
             gbField.Controls.Add(label8);
             gbField.Controls.Add(label3);
@@ -156,6 +151,7 @@
             btnCount.TabIndex = 13;
             btnCount.Text = "COUNT";
             btnCount.UseVisualStyleBackColor = false;
+            btnCount.Click += btnCount_Click;
             // 
             // lblAmount
             // 
@@ -165,6 +161,7 @@
             lblAmount.Size = new Size(33, 15);
             lblAmount.TabIndex = 12;
             lblAmount.Text = "Rp. 0";
+            lblAmount.Click += lblAmount_Click;
             // 
             // panel1
             // 
@@ -205,6 +202,31 @@
             cbEmployeeID.Name = "cbEmployeeID";
             cbEmployeeID.Size = new Size(173, 23);
             cbEmployeeID.TabIndex = 9;
+            // 
+            // cbLicense
+            // 
+            cbLicense.FormattingEnabled = true;
+            cbLicense.Location = new Point(125, 22);
+            cbLicense.Name = "cbLicense";
+            cbLicense.Size = new Size(173, 23);
+            cbLicense.TabIndex = 9;
+            // 
+            // btnSaveEdit
+            // 
+            btnSaveEdit.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
+            btnSaveEdit.BackColor = Color.DarkGreen;
+            btnSaveEdit.FlatAppearance.BorderSize = 0;
+            btnSaveEdit.FlatStyle = FlatStyle.Flat;
+            btnSaveEdit.Font = new Font("Bahnschrift", 9.75F, FontStyle.Regular, GraphicsUnit.Point);
+            btnSaveEdit.ForeColor = SystemColors.ControlLightLight;
+            btnSaveEdit.Location = new Point(915, 110);
+            btnSaveEdit.Name = "btnSaveEdit";
+            btnSaveEdit.Size = new Size(99, 28);
+            btnSaveEdit.TabIndex = 8;
+            btnSaveEdit.Text = "Save";
+            btnSaveEdit.UseVisualStyleBackColor = false;
+            btnSaveEdit.Visible = false;
+            btnSaveEdit.Click += btnSaveEdit_Click;
             // 
             // label5
             // 
@@ -320,6 +342,7 @@
             dtParkingData.RowTemplate.Height = 25;
             dtParkingData.Size = new Size(1020, 301);
             dtParkingData.TabIndex = 26;
+            dtParkingData.CellContentClick += dtParkingData_CellContentClick;
             // 
             // ParkingData
             // 
@@ -348,7 +371,6 @@
         private ComboBox cbVehicleID;
         private Button btnCancel;
         private Button btnSave;
-        private TextBox tbLicensePlate;
         private Label label4;
         private GroupBox gbField;
         private ComboBox cbEmployeeID;
@@ -369,5 +391,7 @@
         private Label label6;
         private Label label8;
         private Button btnCount;
+        private ComboBox cbLicense;
+        private Button btnSaveEdit;
     }
 }

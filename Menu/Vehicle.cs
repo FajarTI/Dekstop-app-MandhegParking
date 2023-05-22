@@ -85,6 +85,9 @@ namespace Latihan1_DL.Menu
 
             if (dtVehicle.Columns[e.ColumnIndex] is DataGridViewColumn && dtVehicle.Columns[e.ColumnIndex].HeaderText == "Edit" && e.ColumnIndex >= 0)
             {
+                gbField.Enabled = true;
+                gbField.Visible = true;
+
                 cbMemberID.SelectedValue = dtVehicle.Rows[e.RowIndex].Cells["member_id"].Value.ToString();
                 cbVehicleType.SelectedValue = dtVehicle.Rows[e.RowIndex].Cells["vehicle_type_id"].Value.ToString();
                 tbLicensePlate.Text = dtVehicle.Rows[e.RowIndex].Cells["license_plate"].Value.ToString();
@@ -93,7 +96,7 @@ namespace Latihan1_DL.Menu
             else if (dtVehicle.Columns[e.ColumnIndex] is DataGridViewColumn && dtVehicle.Columns[e.ColumnIndex].HeaderText == "Delete" && e.ColumnIndex >= 0)
             {
                 Dictionary<string, object> data = new Dictionary<string, object>();
-                data.Add("deleted_id", DateTime.Now);
+                data.Add("deleted_at", DateTime.Now);
 
                 int result = DBHelper.Update("vehicle", data, "id = " + id);
                 if (result > 0)

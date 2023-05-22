@@ -202,15 +202,16 @@ namespace Latihan1_DL.Menu
                 data.Add("phone_number", phone_number);
                 data.Add("gender", gender);
                 data.Add("date_of_birth", date_of_birth);
+                data.Add("last_updated_at", DateTime.Now);
 
-                int result = DBHelper.Update("member", data,"id = " + id);
+                int result = DBHelper.Update("member", data, "id = " + id);
                 if (result != 0)
                 {
-                    MessageBox.Show("Success to Add!", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Success to Update!", "Update", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     RefreshDataTable();
                 }
                 else
-                    MessageBox.Show("Failed to Add!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("Failed to Update!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
             else
             {
